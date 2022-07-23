@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Save", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-control">
+        <input type="file" id="flPhoto" name="upload" />
+        <table>
+            <tr>
+                <td>
+                    Width: <label id="lblWidth">200px</label>
+                    Height: <label id="lblHeight">200px</label>
+                </td>
+                <td>
+                    <a href="#" id="hlcropImage" style="vertical-align:top;">Crop Image</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="height:800px; width:600px; overflow:auto;">
+                        <img id="imgEmpPhoto" src="~/Images/237ae0b3-0038-4030-8405-0179a496f3e6_740798390.jpg" alt="Employee Image" />
+                    </div>
+                </td>
+                <td>
+                    <canvas id="canvas" height="5" width="5" style="vertical-align:top;"></canvas>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        <img id="imgCropped" src="#" style="display:none;" />
+    </p>
+
+    <input type="hidden" name="avatarCropped" id="avatarCropped" />
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+}
+@section Scripts {
+    <script src="~/js/JavaScript.js" asp-append-version="true"></script>
+}
